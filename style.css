@@ -1,0 +1,1270 @@
+/* ==================== */
+/* RESET ET BASES */
+/* ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ==================== */
+/* ANIMATIONS DE FOND */
+/* ==================== */
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
+    background-size: cover;
+    animation: animateBg 50s linear infinite;
+    z-index: -1;
+}
+
+@keyframes animateBg {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Étoiles animées */
+span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1), 
+                0 0 0 8px rgba(255,255,255,0.1), 
+                0 0 20px rgba(255,255,255,0.1);
+    animation: animate 3s linear infinite;
+    z-index: -1;
+}
+
+span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+    z-index: -1;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+/* Positions des étoiles */
+span:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 1s;
+}
+
+span:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+
+span:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+
+span:nth-child(4) {
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+
+span:nth-child(5) {
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
+
+span:nth-child(6) {
+    top: 0;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+
+span:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
+}
+
+span:nth-child(8) {
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+
+span:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+
+span:nth-child(10) {
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.75s;
+}
+
+/* ==================== */
+/* PLANÈTES */
+/* ==================== */
+.planets-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    animation: float 120s infinite linear;
+    opacity: 0.9;
+}
+
+.planet-1 {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+    left: 10%;
+    background-image: url('https://i.postimg.cc/sXLKrV5g/download.jpg');
+    animation-duration: 100s;
+}
+
+.planet-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    left: 70%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Full_moon.png');
+    animation-duration: 150s;
+}
+
+.planet-3 {
+    width: 80px;
+    height: 80px;
+    top: 30%;
+    left: 80%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/27/Mars_transparent.png');
+    animation-duration: 80s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(20px, -10px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, -20px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-20px, -10px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* ==================== */
+/* TITRE PRINCIPAL */
+/* ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;700&display=swap');
+
+.elegant-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 4.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    line-height: 1.2;
+}
+
+/* ==================== */
+/* BARRE DES TÂCHES */
+/* ==================== */
+.floating-taskbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(173, 216, 230, 0.388);
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-container {
+    flex: 1;
+    position: relative;
+    margin: 0 15px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+.icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.time-display {
+    font-size: 12px;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+/* ==================== */
+/* MENU APPLICATIONS */
+/* ==================== */
+.apps-menu {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: rgba(201, 229, 239, 0.381);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+    animation: fadeIn 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.app-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #fff;
+    font-size: 20px;
+}
+
+.app-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ==================== */
+/* MODALES */
+/* ==================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 700px;
+    max-height: 80vh;
+    background-color: rgba(173, 216, 230, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 
+                0 0 0 1px rgba(255,255,255,0.1),
+                0 0 30px rgba(65, 120, 255, 0.3);
+    z-index: 1001;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s;
+    border: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes modalFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translate(-50%, -40%); 
+        backdrop-filter: blur(0);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate(-50%, -50%); 
+        backdrop-filter: blur(10px);
+    }
+}
+
+.mac-window-controls {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: linear-gradient(to right, rgba(92, 114, 121, 0.8), rgba(70, 90, 100, 0.8));
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    user-select: none;
+    position: relative;
+}
+
+.mac-window-controls::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.mac-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.mac-btn:hover {
+    transform: scale(1.1);
+}
+
+.mac-close {
+    background: linear-gradient(to bottom, #ff5f56, #e0443e);
+    border: 1px solid #e0443e;
+}
+
+.mac-minimize {
+    background: linear-gradient(to bottom, #ffbd2e, #e0a028);
+    border: 1px solid #e0a028;
+}
+
+.mac-maximize {
+    background: linear-gradient(to bottom, #27c93f, #1aad29);
+    border: 1px solid #1aad29;
+}
+
+.mac-title {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -40px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+}
+
+.modal-content {
+    padding: 25px;
+    overflow-y: auto;
+    max-height: calc(80vh - 60px);
+    background-color: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+/* ==================== */
+/* SECTIONS DES MODALES */
+/* ==================== */
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 25px;
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.profile-info h2 {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 1.8rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.profile-info p {
+    margin: 0 0 15px 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+}
+
+.social-links a {
+    color: rgba(255,255,255,0.8);
+    margin-right: 15px;
+    font-size: 1.4rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 10px rgba(255,255,255,0.5);
+}
+
+.bio-section, .skill-category, .timeline, .cv-preview, .project-grid {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bio-section h4, .skill-category h4 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.3rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.bio-section p {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ==================== */
+/* COMPÉTENCES */
+/* ==================== */
+.skill-bar {
+    margin-bottom: 15px;
+}
+
+.skill-bar span {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+}
+
+.bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.bar {
+    height: 100%;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 242, 254, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                rgba(255,255,255,0) 100%);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ==================== */
+/* TIMELINE */
+/* ==================== */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(65, 120, 255, 0.7) 30%, 
+                rgba(65, 120, 255, 0.7) 70%, 
+                transparent 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+                #4facfe 0%, 
+                #00f2fe 70%, 
+                transparent 100%);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    z-index: 1;
+}
+
+.timeline-item h4 {
+    margin: 0 0 5px 0;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.company {
+    font-weight: bold;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.timeline-item p {
+    margin: 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+/* ==================== */
+/* PROJETS */
+/* ==================== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 46%,
+        rgba(255,255,255,0.05) 47%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0.05) 53%,
+        rgba(255,255,255,0) 54%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(30deg);
+    animation: projectShine 5s infinite;
+}
+
+@keyframes projectShine {
+    0% { transform: translateY(-100%) rotate(30deg); }
+    100% { transform: translateY(100%) rotate(30deg); }
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.project-card:hover::before {
+    animation: projectShine 1.5s infinite;
+}
+
+.project-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-card h4 {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.project-card p {
+    margin: 0;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+}
+
+/* ==================== */
+/* BOUTONS */
+/* ==================== */
+.btn-download, .btn-download-sm, .btn-submit {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-download {
+    padding: 12px 25px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.btn-download-sm {
+    padding: 8px 15px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 10px rgba(0, 242, 254, 0.3);
+}
+
+.btn-submit {
+    padding: 12px 25px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-download:hover, .btn-download-sm:hover, .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
+}
+
+.btn-download:active, .btn-download-sm:active, .btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-download i, .btn-download-sm i {
+    margin-right: 8px;
+}
+
+/* ==================== */
+/* FORMULAIRES */
+/* ==================== */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4facfe;
+    box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.3);
+    background-color: rgba(0,0,0,0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ==================== */
+/* DOCUMENTS ET ARTICLES */
+/* ==================== */
+.document-item, .article-item, .contact-info {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.document-item:hover, .article-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+}
+
+.document-item i {
+    font-size: 1.4rem;
+    margin-right: 15px;
+    color: #4facfe;
+}
+
+.document-item span {
+    flex: 1;
+    color: rgba(255,255,255,0.9);
+}
+
+.article-item h4 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.source {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+}
+
+.read-more {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.read-more:hover {
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.read-more i {
+    margin-left: 5px;
+    font-size: 0.8rem;
+}
+
+/* ==================== */
+/* CONTACT */
+/* ==================== */
+.contact-info p {
+    margin: 0 0 12px 0;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info i {
+    color: #4facfe;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+/* ==================== */
+/* SWITCH MODE */
+/* ==================== */
+.switch-container {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    margin: 0 10px;
+}
+
+.switch-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(100, 124, 132, 0.514);
+    border-radius: 999px;
+    padding: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.switch-knob {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.switch-top {
+    background-color: #827d96;
+    border-radius: 999px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: background-color 0.3s ease;
+}
+
+.switch-light {
+    border-radius: 999px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        #4cc3e2 10.42%,
+        rgba(94, 199, 227, 0.791579) 27.08%,
+        rgba(113, 204, 229, 0.35) 45.31%,
+        rgba(144, 213, 231, 0.11) 65.1%,
+        rgba(158, 216, 231, 0.02) 78.12%,
+        rgba(177, 221, 233, 0) 95.83%
+    );
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.no-highlight {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Active state */
+.switch-btn.active .switch-knob {
+    transform: translateX(30px);
+}
+
+.switch-btn.active .switch-top {
+    background-color: #FFFFFF;
+}
+
+.switch-btn.active .switch-light {
+    opacity: 1;
+    width: 80px;
+    height: 80px;
+}
+
+/* ==================== */
+/* MODE SCOLAIRE */
+/* ==================== */
+body.school-mode {
+    background-color: #0a0e1a;
+}
+
+body.school-mode .floating-taskbar {
+    background-color: rgba(210, 180, 222, 0.5);
+}
+
+body.school-mode .modal {
+    background-color: rgba(210, 180, 222, 0.8);
+}
+
+body.school-mode .modal-content {
+    background-color: rgba(210, 180, 222, 0.8);
+}
+
+body.school-mode #mode-title {
+    content: "Étudiant en Informatique";
+}
+
+body.school-mode #mode-bio {
+    content: "Étudiant passionné par l'informatique et les nouvelles technologies. Je recherche activement un stage pour mettre en pratique mes connaissances et apprendre de nouveaux concepts.";
+}
+
+body.school-mode .elegant-title {
+    text-shadow: 0 0 20px rgba(210, 180, 222, 0.7);
+}
+
+body.school-mode .bar {
+    background: linear-gradient(to right, #d66efd, #6a5acd);
+    box-shadow: 0 2px 10px rgba(214, 110, 253, 0.3);
+}
+
+body.school-mode .timeline-item::before {
+    background: radial-gradient(circle at center, 
+                #d66efd 0%, 
+                #6a5acd 70%, 
+                transparent 100%);
+    box-shadow: 0 0 10px rgba(214, 110, 253, 0.5);
+}
+
+body.school-mode .btn-download,
+body.school-mode .btn-download-sm,
+body.school-mode .btn-submit {
+    background: linear-gradient(to right, #d66efd, #6a5acd);
+    box-shadow: 0 4px 15px rgba(214, 110, 253, 0.3);
+}
+
+body.school-mode .btn-download:hover,
+body.school-mode .btn-download-sm:hover,
+body.school-mode .btn-submit:hover {
+    box-shadow: 0 6px 20px rgba(214, 110, 253, 0.4);
+}
+
+body.school-mode .document-item i,
+body.school-mode .contact-info i {
+    color: #d66efd;
+}
+
+body.school-mode .read-more {
+    color: #d66efd;
+}
+
+body.school-mode .read-more:hover {
+    color: #6a5acd;
+    text-shadow: 0 0 10px rgba(214, 110, 253, 0.3);
+}
+
+/* ==================== */
+/* MODE DARK */
+/* ==================== */
+body.dark-mode {
+    background-color: #1a2031;
+}
+
+body.dark-mode .floating-taskbar {
+    background-color: rgba(173, 216, 230, 0.514);
+}
+
+body.dark-mode .modal {
+    background-color: rgba(173, 216, 230, 0.514);
+}
+
+body.dark-mode .modal-content {
+    background-color: rgba(173, 216, 230, 0.514);
+}
+
+/* ==================== */
+/* RESPONSIVE */
+/* ==================== */
+@media (max-width: 768px) {
+    .elegant-title {
+        font-size: 2.5rem;
+        width: 90%;
+    }
+    
+    .modal {
+        width: 90%;
+        max-height: 85vh;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-pic {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mac-title {
+        margin-left: 0;
+        font-size: 12px;
+    }
+    
+    /* Planètes en mobile */
+    .planet-1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 5%;
+    }
+    
+    .planet-2 {
+        width: 120px;
+        height: 120px;
+        top: 70%;
+        left: 60%;
+    }
+    
+    .planet-3 {
+        width: 60px;
+        height: 60px;
+        top: 40%;
+        left: 75%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .bio-section h4, .skill-category h4 {
+        font-size: 1.1rem;
+    }
+    
+    .btn-download {
+        padding: 10px 20px;
+    }
+    
+    .floating-taskbar {
+        width: 95%;
+        padding: 8px 15px;
+        bottom: 10px;
+    }
+    
+    .search-bar {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .apps-menu {
+        width: 280px;
+    }
+    
+    .app-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .switch-container {
+        width: 50px;
+        height: 25px;
+        margin: 0 5px;
+    }
+    
+    .switch-knob {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .switch-btn.active .switch-knob {
+        transform: translateX(25px);
+    }
+}
