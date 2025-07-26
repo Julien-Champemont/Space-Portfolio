@@ -77,3 +77,9 @@ open index.html
 ---
 
 ## 📝 Personnalisation
+
+📝 Contenu :
+  - Modifiez ```index.html``` pour insérer vos propres informations
+
+🎨 Thème : 
+  - Changez les couleurs via les variables CSS dans ```style.css```
