@@ -90,3 +90,9 @@ open index.html
 🎞️ Animations :
 
   - Personnalisez les effets dans ```script.js``` (via GSAP)
+
+
+---
+
+## Créé avec 🚀 par Julien-Champemont
+## Crafted with 🚀 by Julien-Champemont
