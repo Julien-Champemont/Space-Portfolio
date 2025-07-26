@@ -1,7 +1,7 @@
 # 🌌 Portfolio Spatial Interactif / Interactive Space Portfolio
 
-[![License](https://img.shields.io/github/license/Julien-Champemont/portfolio-spatial?style=for-the-badge&color=4d79ff)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/Julien-Champemont/portfolio-spatial?style=for-the-badge)](https://github.com/Julien-Champemont/portfolio-spatial/stargazers)
+[![License](https://img.shields.io/github/license/Julien-Champemont/Space-Portfolio?style=for-the-badge&color=4d79ff)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Julien-Champemont/Space-Portfolio?style=for-the-badge)](https://github.com/Julien-Champemont/portfolio-spatial/stargazers)
 [![Website](https://img.shields.io/website?down_message=offline&label=Live%20Demo&style=for-the-badge&up_message=online&url=https%3A%2F%2Fspacial-portfolio.netlify.app)](https://spacial-portfolio.netlify.app)
 
 > Un portfolio moderne à thème spatial, avec animations fluides et double thème visuel.  
