@@ -95,4 +95,5 @@ open index.html
 ---
 
 *Créé avec 🚀 par Julien-Champemont*
+
 *Crafted with 🚀 by Julien-Champemont*
