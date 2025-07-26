@@ -54,9 +54,9 @@
 
 ## 🖥 Démo / Demo
 
-- 🔗 GitHub Pages : [https://votrenom.github.io](https://votrenom.github.io) *(à remplacer)*  
+- 🔗 GitHub Pages : [https://spacial-portfolio.netlify.app/) *(à remplacer)*  
 - 🖼 Aperçu :  
-  ![Aperçu](https://i.imgur.com/space-portfolio-preview.gif) *(ajoutez une vraie capture)*
+  ![Aperçu](https://i.postimg.cc/3J0qgrPF/a8bad7c5-b055-43ae-b586-df273d2c90ef.png) *(ajoutez une vraie capture)*
 
 ---
 
