@@ -1,5 +1,9 @@
 # 🌌 Portfolio Spatial Interactif / Interactive Space Portfolio
 
+[![License](https://img.shields.io/github/license/Julien-Champemont/portfolio-spatial?style=for-the-badge&color=4d79ff)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Julien-Champemont/portfolio-spatial?style=for-the-badge)](https://github.com/Julien-Champemont/portfolio-spatial/stargazers)
+[![Website](https://img.shields.io/website?down_message=offline&label=Live%20Demo&style=for-the-badge&up_message=online&url=https%3A%2F%2Fspacial-portfolio.netlify.app)](https://spacial-portfolio.netlify.app)
+
 > Un portfolio moderne à thème spatial, avec animations fluides et double thème visuel.  
 > A modern space-themed portfolio with smooth animations and dual visual themes.
 
@@ -42,6 +46,11 @@
 ---
 
 ## 🛠 Technologies
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)]()
+[![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white)]()
 
 | Catégorie    | Technologies utilisées / Tech Stack                |
 |--------------|---------------------------------------------------|
