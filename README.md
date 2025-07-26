@@ -73,3 +73,29 @@ cd portfolio-spatial
 open index.html
 
 ```
+
+---
+
+📝 Personnalisation
+✏️ Contenu :
+Modifiez index.html pour insérer vos propres informations
+
+Remplacez les images dans le dossier /assets
+
+🎨 Thème :
+Changez les couleurs via les variables CSS dans style.css
+
+Modifiez les icônes d'applications dans script.js (schoolApps[] et proApps[])
+
+🎞️ Animations :
+Personnalisez les effets dans script.js (via GSAP)
+
+📜 Licence
+MIT License — Libre d’utilisation, modification et distribution.
+
+✨ Tips & Tricks
+🌑 Astuce : Activez le mode sombre pour une immersion spatiale ultime !
+💡 Pro Tip: Enable dark mode for the best cosmic experience!
+
+Créé avec 🚀 par [Votre Nom]
+Crafted with 🚀 by [Your Name]
