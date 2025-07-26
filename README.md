@@ -79,7 +79,14 @@ open index.html
 ## 📝 Personnalisation
 
 📝 Contenu :
+
   - Modifiez ```index.html``` pour insérer vos propres informations
 
 🎨 Thème : 
+
   - Changez les couleurs via les variables CSS dans ```style.css```
+  - Modifiez les icônes d'applications dans ```script.js``` (```schoolApps[]``` et ```proApps[]```)
+
+🎞️ Animations :
+
+  - Personnalisez les effets dans ```script.js``` (via GSAP)
