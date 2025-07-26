@@ -54,7 +54,7 @@
 
 ## 🖥 Démo / Demo
 
-- 🔗 GitHub Pages : [https://spacial-portfolio.netlify.app/) *(à remplacer)*  
+- 🔗 GitHub Pages : [https://spacial-portfolio.netlify.app/) 
 - 🖼 Aperçu :  
   ![Aperçu](https://i.postimg.cc/3J0qgrPF/a8bad7c5-b055-43ae-b586-df273d2c90ef.png) 
 
