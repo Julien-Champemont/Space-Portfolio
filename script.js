@@ -120,6 +120,8 @@ function initPlanetParallax() {
     const planets = document.querySelectorAll('.planet');
     
     document.addEventListener('mousemove', (e) => {
+        if (document.body.classList.contains('modal-open')) return;
+        
         const x = e.clientX / window.innerWidth - 0.5;
         const y = e.clientY / window.innerHeight - 0.5;
         
@@ -133,31 +135,67 @@ function initPlanetParallax() {
     });
 }
 
-// Theme toggle functionality (mode scolaire/pro)
+// Notification spatiale
+function showAppNotification(title, message) {
+    const notification = document.getElementById('app-notification');
+    const notificationTitle = document.getElementById('notification-title');
+    const notificationMessage = document.getElementById('notification-message');
+    const progressBar = document.querySelector('.progress');
+    
+    // Mettre à jour le contenu
+    notificationTitle.textContent = title;
+    notificationMessage.textContent = message;
+    
+    // Afficher la notification
+    notification.classList.add('show');
+    
+    // Démarrer la barre de progression
+    let width = 0;
+    const interval = setInterval(function() {
+        if (width >= 100) {
+            clearInterval(interval);
+            // Fermer automatiquement après 3 secondes
+            setTimeout(function() {
+                notification.classList.remove('show');
+            }, 3000);
+        } else {
+            width++;
+            progressBar.style.width = width + '%';
+        }
+    }, 30);
+    
+    // Fermeture manuelle
+    document.querySelector('.notification-close').onclick = function() {
+        notification.classList.remove('show');
+        progressBar.style.width = '0%';
+        clearInterval(interval);
+    };
+}
+
+// Theme toggle functionality
 const themeToggle = document.getElementById('theme-toggle');
 let isSchoolMode = false;
 
 // Applications pour chaque mode
 const schoolApps = [
-    { icon: '<i class="fas fa-user"></i>', title: "", modal: "about-modal" },
-    { icon: '<i class="fas fa-graduation-cap"></i>', title: "", modal: "education-modal" },
-    { icon: '<i class="fas fa-file"></i>', title: "", modal: "cv-modal" },
-    { icon: '<i class="fas fa-project-diagram"></i>', title: "", modal: "school-projects-modal" },
-    { icon: '<i class="fas fa-briefcase"></i>', title: "", modal: "internships-modal" },
-    { icon: '<i class="fas fa-book"></i>', title: "", modal: "references-modal" },
-    { icon: '<i class="fas fa-globe"></i>', title: "", modal: "watch-modal" },
-    { icon: '<i class="fas fa-comment"></i>', title: "", modal: "contact-modal" }
+    { icon: '<i class="fas fa-user"></i>', title: "Profil", modal: "about-modal" },
+    { icon: '<i class="fas fa-graduation-cap"></i>', title: "Formation", modal: "education-modal" },
+    { icon: '<i class="fas fa-file"></i>', title: "CV", modal: "cv-modal" },
+    { icon: '<i class="fas fa-project-diagram"></i>', title: "Projets Scolaires", modal: "school-projects-modal" },
+    { icon: '<i class="fas fa-briefcase"></i>', title: "Expériences", modal: "internships-modal" },
+    { icon: '<i class="fas fa-scroll"></i>', title: "Certifications", modal: "watch-modal" },
+    { icon: '<i class="fas fa-comment"></i>', title: "Contact", modal: "contact-modal" }
 ];
 
 const proApps = [
-    { icon: '<i class="fas fa-user"></i>', title: "", modal: "about-modal" },
-    { icon: '<i class="fas fa-trophy"></i>', title: "", modal: "skills-modal" },
-    { icon: '<i class="fas fa-file"></i>', title: "", modal: "cv-modal" },
-    { icon: '<i class="fas fa-suitcase"></i>', title: "", modal: "projects-modal" },
-    { icon: '<i class="fas fa-eye"></i>', title: "", modal: "internships-modal" },
-    { icon: '<i class="fas fa-inbox"></i>', title: "", modal: "documents-modal" },
-    { icon: '<i class="fas fa-globe"></i>', title: "", modal: "watch-modal" },
-    { icon: '<i class="fas fa-comment"></i>', title: "", modal: "contact-modal" }
+    { icon: '<i class="fas fa-user"></i>', title: "Profil", modal: "about-modal" },
+    { icon: '<i class="fas fa-trophy"></i>', title: "Compétences", modal: "skills-modal" },
+    { icon: '<i class="fas fa-file"></i>', title: "CV Interstellaire", modal: "cv-modal" },
+    { icon: '<i class="fas fa-suitcase"></i>', title: "Projets Professionels", modal: "projects-modal" },
+    { icon: '<i class="fas fa-eye"></i>', title: "Expériences", modal: "internships-modal" },
+    { icon: '<i class="fas fa-inbox"></i>', title: "Documents", modal: "documents-modal" },
+    { icon: '<i class="fas fa-scroll"></i>', title: "Certifications", modal: "watch-modal" },
+    { icon: '<i class="fas fa-comment"></i>', title: "Contact", modal: "contact-modal" }
 ];
 
 function updateAppsMenu() {
@@ -174,13 +212,14 @@ function updateAppsMenu() {
         appIcon.innerHTML = app.icon;
         appGrid.appendChild(appIcon);
         
-        // Re-attach event listener
         appIcon.addEventListener('click', () => {
             const modalId = appIcon.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
-            const title = appIcon.getAttribute('title');
+            const title = appIcon.getAttribute('title') || "l'application";
             
-            modal.querySelector('.mac-title').textContent = title;
+            // Afficher la notification spatiale
+            showAppNotification("Lancement spatial", `Ouverture de ${title}`);
+            
             appsMenu.style.display = 'none';
             openModal(modal);
         });
@@ -195,27 +234,23 @@ function updateProfileContent() {
     const planet2 = document.querySelector('.planet-2');
     
     if (isSchoolMode) {
-        // Mode scolaire
         mainTitle.textContent = "Mon Portfolio Scolaire";
-        modeTitle.textContent = "Étudiant en Informatique";
-        modeBio.textContent = "Étudiant passionné par l'informatique et les nouvelles technologies. Je recherche activement un stage pour mettre en pratique mes connaissances et apprendre de nouveaux concepts.";
+        modeTitle.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        modeBio.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.";
         planet1.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Full_moon.png')";
         planet2.style.backgroundImage = "url('https://i.postimg.cc/sXLKrV5g/download.jpg')";
         
-        // Animation du titre
         gsap.fromTo("#main-title", 
             { opacity: 0, y: -20 },
             { opacity: 1, y: 0, duration: 0.5 }
         );
     } else {
-        // Mode pro
-        mainTitle.textContent = "Mon Portfolio Pro";
-        modeTitle.textContent = "Développeur Full Stack";
-        modeBio.textContent = "Passionné par le développement web et les nouvelles technologies. J'aime créer des interfaces utilisateur intuitives et des expériences utilisateur mémorables.";
+        mainTitle.textContent = "Mon Portfolio Professionnel";
+        modeTitle.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        modeBio.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.";
         planet1.style.backgroundImage = "url('https://i.postimg.cc/sXLKrV5g/download.jpg')";
         planet2.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Full_moon.png')";
         
-        // Animation du titre
         gsap.fromTo("#main-title", 
             { opacity: 0, y: -20 },
             { opacity: 1, y: 0, duration: 0.5 }
@@ -228,11 +263,9 @@ themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('school-mode');
     themeToggle.classList.toggle('active');
     
-    // Mettre à jour les applications et le contenu
     updateAppsMenu();
     updateProfileContent();
     
-    // Animation avec GSAP
     if (isSchoolMode) {
         gsap.to(".switch-knob", { x: 30, duration: 0.3 });
         gsap.to(".switch-top", { backgroundColor: "#FFFFFF", duration: 0.3 });
@@ -259,7 +292,7 @@ themeToggle.addEventListener('click', () => {
 // Initialize when page loads
 window.addEventListener('load', () => {
     initPlanetParallax();
-    updateAppsMenu(); // Initialiser les applications
+    updateAppsMenu();
     
     // Preload planet images
     const planetImages = [
